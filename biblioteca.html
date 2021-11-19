@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Biblioteca Montequinto</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="bootstrap/js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body {
+            margin-left: 10px;
+        }
+        
+        form {
+            display: none;
+        }
+        
+        #formularios {
+            margin-top: 60px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--NavBar con todas las opciones-->
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Biblioteca</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                  <li><a href="#" id="mnuListados">Listados</a></li>
+                  <li><a href="#" id="mnuAltaUsuario">Usuario</a></li>
+                  <li><a href="#" id="mnuAltaArticulo">Articulos</a></li>
+                  <li><a href="#" id="mnuAltaPrestamo">Prestamos</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <!--Menu de Listados-->
+    <div class="container-fluid" id="formularios">
+        <form class="form-horizontal" name="frmListados" id="frmListados">
+            <fieldset>
+                <!-- Form Name -->
+                <legend>Listados</legend>
+                <!-- Select -->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="lstListaUsuarios">Listado de usuarios</label>
+                    <div class="col-xs-4">
+                        <input type="button" name="btnListadoUsuarios" id="btnListadoUsuarios" value="Ver"class="btn btn-primary" onclick="listadoUsuario();"/>
+                    </div>
+                </div>
+                <!-- Select -->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="lstListaArticulos">Listado de articulos</label>
+                    <div class="col-xs-4">
+                        <input type="button" name="btnListadoArticulos" id="btnListadoArticulos" value="Ver"class="btn btn-primary" onclick="listadoArticulos();"/>
+                    </div>
+                </div>
+                <!-- Select -->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="lstListaArticulosTipo">Listado de articulos tipo</label>
+                    <label class="radio-inline">
+                        <input type="radio" name="optradio" checked>Libros
+                      </label>
+                      <label class="radio-inline">
+                        <input type="radio" name="optradio">CD'S
+                    </label>
+                    &nbsp;&nbsp;&nbsp;<input type="button" name="btnListadoArticulosTipo" id="btnListadoArticulosTipo" value="Ver"class="btn btn-primary" onclick="listadoArticulosTipo();"/>
+                </div>
+                <!-- Select -->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="lstListadoPrestamos">Listado de prestamos</label>
+                    De <input type="date" id="fechaInicio" name="fechaInicio"> &nbsp;a&nbsp; <input type="date" id="fechaFin" name="fechaFin">
+                    &nbsp;&nbsp;&nbsp;<input type="button" name="btnListadoPrestamos" id="btnListadoPrestamos" value="Ver" class="btn btn-primary" onclick="listadoPrestamos();"/>
+                </div>
+                
+            </fieldset>
+        </form>
+    
+
+    <!--Menu de Usuarios-->
+
+        <form class="form-horizontal" name="frmAltaUsuario" id="frmAltaUsuario">
+            <fieldset>
+                <!-- Form Name -->
+                <legend>Alta de usuario</legend>
+                <!-- Select -->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="lstIDUsuario">ID de usuario</label>
+                    <div class="col-xs-4">
+                        <input id="lstIDUsuario" name="lstIDUsuario" type="text" placeholder="" class="form-control input-md">
+                    </div>
+                </div>
+                <!-- Select -->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="lstNombre">Nombre</label>
+                    <div class="col-xs-4">
+                        <input id="lstNombre" name="lstNombre" type="text" placeholder="" class="form-control input-md">
+                    </div>
+                </div>
+                <!-- Select -->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="lstApellidos">Apellidos</label>
+                    <div class="col-xs-4">
+                        <input id="lstApellidos" name="lstApellidos" type="text" placeholder="" class="form-control input-md">
+                    </div>
+                </div>
+                <!-- Select -->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="lstTelefono">Teléfono</label>
+                    <div class="col-xs-4">
+                        <input id="lstTelefono" name="lstTelefono" type="text" placeholder="" class="form-control input-md">
+                    </div>
+                </div>
+
+                <!-- Botón Aceptar Alta Usuario -->
+                <div class="form-group">
+                    <div class="col-xs-6 control-label">
+                        <input type="button" name="btnAceptarAltaUsuario" id="btnAceptarAltaUsuario" value="Aceptar"class="btn btn-primary" onclick="aceptarAltaUsuario();"/>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+
+
+    <!--Menu de Articulos-->
+
+        <form class="form-horizontal" name="frmAltaArticulo" id="frmAltaArticulo">
+            <fieldset>
+                <!-- Form Name -->
+                <legend>Alta de articulo</legend>
+                <!-- Select -->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="lstIDArticulo">ID de articulo</label>
+                    <div class="col-xs-4">
+                        <input id="lstIDArticulo" name="lstIDArticulo" type="text" placeholder="" class="form-control input-md">
+                    </div>
+                </div>
+                <!-- Select -->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="lstTitulo">Titulo</label>
+                    <div class="col-xs-4">
+                        <input id="lstTitulo" name="lstTitulo" type="text" placeholder="" class="form-control input-md">
+                    </div>
+                </div>
+                <!--Select-->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="lstSubtitulado">¿De que tipo es?</label>
+                    <div id="txtTipo" class="col-xs-4">
+                        <label class="radio-inline">
+                            <input type="radio" name="optradio" onchange="cambio('libro')">Libro
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="optradio" onchange="cambio('DVD')" value="dvd">DVD
+                          </label>
+                    </div>
+                </div>
+                <!-- Select -->
+                <div class="card">
+                    <div class="libro">
+                      <div id="txtAutor" class="form-group txtAutor">
+                        <label class="col-xs-4 control-label" for="lstAutor">Autor</label>
+                        <div class="col-xs-4">
+                            <input id="lstAutor" name="lstAutor" type="text" placeholder="" class="form-control input-md">
+                        </div>
+                      </div>
+                      <div id="txtNumPag" class="form-group txtPaginas">
+                        <label class="col-xs-4 control-label" for="lstPaginas">Número de páginas</label>
+                        <div class="col-xs-4">
+                            <input id="lstPaginas" name="lstPaginas" type="text" placeholder="" class="form-control input-md">
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="cd">
+                      <div id="txtFecha" class="form-group txtFechaEstreno">
+                        <label class="col-xs-4 control-label" for="lstEstreno">Fecha de estreno</label>
+                        <div class="col-xs-4">
+                            <input type="date" id="fechaEstreno" name="fechaEstreno">
+                        </div>
+                      </div>
+                      <div id="txtSub" class="form-group txtSubtitulado">
+                        <label class="col-xs-4 control-label" for="lstSubtitulado">¿Está subtitulado?</label>
+                        <div id="subtitles" class="col-xs-4">
+                            <label class="radio-inline">
+                                <input type="radio" name="optradio2" value="s">Si
+                              </label>
+                              <label class="radio-inline">
+                                <input type="radio" name="optradio2" value="n">No
+                              </label>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+
+                <!-- Botón Aceptar Alta Articulo -->
+                <div class="form-group control-label">
+                    <div class="col-xs-6">
+                        <input type="button" name="btnAceptarAltaArticulo" id="btnAceptarAltaArticulo" value="Aceptar"class="btn btn-primary" onclick="aceptarAltaArticulo();"/>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+
+
+    <!--Menu de prestamos-->
+
+        <form class="form-horizontal" name="frmAltaPrestamo" id="frmAltaPrestamo">
+            <fieldset>
+                <!-- Form Name -->
+                <legend>Alta de prestamo</legend>
+                <!-- Select -->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="lstLibros1">Libro 1</label>
+                    <div class="col-xs-4">
+                        <select id="lstLibros1" name="lstLibros1" class="form-control input-md">
+                        </select>
+                    </div>
+                </div>
+                <!-- Select -->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="lstLibros2">Libro 2</label>
+                    <div class="col-xs-4">
+                        <select id="lstLibros2" name="lstLibros2" class="form-control input-md">
+                        </select>
+                    </div>
+                </div>
+                <!-- Select -->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="lstDVD1">DVD 1</label>
+                    <div class="col-xs-4">
+                        <select id="lstDVD1" name="lstDVD1" class="form-control input-md">
+                        </select>
+                    </div>
+                </div>
+                <!-- Select -->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="lstDVD2">DVD 2</label>
+                    <div class="col-xs-4">
+                        <select id="lstDVD2" name="lstDVD2" class="form-control input-md">
+                        </select>
+                    </div>
+                </div>
+
+
+                <!-- Botón Aceptar Alta Prestamo -->
+                <div class="form-group control-label">
+                    <div class="col-xs-6">
+                        <input type="button" name="btnAceptarAltaPrestamo" id="btnAceptarAltaPrestamo" value="Aceptar"class="btn btn-primary" onclick="aceptarAltaPrestamo();"/>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+
+    <script type="text/javascript" src="js/objetos.js"></script>
+    <script type="text/javascript" src="js/codigo.js"></script>
+</body>
+
+</html>
